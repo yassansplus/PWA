@@ -27,6 +27,7 @@ import {PageComponent} from './page/page.component';
 import {SideBarComponent} from './side-bar/side-bar.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

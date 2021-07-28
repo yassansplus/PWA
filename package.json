@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start-pwa": "ng build --prod && http-server -p 8080 -c-1 dist/angularfirebase-authentication "
   },
   "private": true,
   "dependencies": {
@@ -20,12 +21,14 @@
     "@angular/platform-browser": "^10.1.2",
     "@angular/platform-browser-dynamic": "^10.1.2",
     "@angular/router": "^10.1.2",
+    "@angular/service-worker": "^10.2.5",
     "@ckeditor/ckeditor5-angular": "^2.0.2",
     "@ckeditor/ckeditor5-build-classic": "^29.0.0",
     "bootstrap": "^4.5.2",
     "core-js": "^2.6.11",
     "firebase": "^7.21.0",
     "fsevents": "^2.1.3",
+    "http-server": "^0.12.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

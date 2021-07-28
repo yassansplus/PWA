@@ -3,7 +3,6 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {AuthService} from '../shared/services/auth.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
@@ -18,6 +17,13 @@ export class PageComponent implements OnInit {
   public titre = 'Sans titre';
   public idPage;
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
+  intervalId = setInterval(() => {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      if (params.id) {
+        this.getDocument();
+      }
+    });
+  }, 3000);
 
   constructor(public authService: AuthService, private httpClient: HttpClient, private activatedRoute: ActivatedRoute) {
 
