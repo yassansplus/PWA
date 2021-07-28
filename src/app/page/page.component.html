@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-side-bar></app-side-bar>
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+
+        <div class="pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Page Id: {{idPage}}</h1>
+        </div>
+        <!-- Show user data when logged in -->
+        <div class="row" *ngIf="authService.userData as user">
+          <div class="col-md-12">
+            <div class="media">
+              <div class="media-body">
+                <input type="text" class="form-control mb-5" placeholder="Titre" (keyup)="onSearchChange()"
+                       [(ngModel)]="titre">
+                <ckeditor [(ngModel)]="editorData" (keyup)="onSearchChange()" [editor]="Editor"
+                          data="<p>Hello, world!</p>"></ckeditor>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<nav class="col-md-2 d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-user"></i>Profile
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/page']">
+          <i class="fas fa-file-word"></i> Nouveau Document
+        </a>
+      </li>
+      <!-- Calling SignOut() Api from AuthService -->
+      <li class="nav-item">
+        <a class="nav-link" (click)="authService.SignOut()">
+          <i class="fas fa-sign-out-alt"></i>Deconnexion
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-user"></i>Documents existants
+        </a>
+      </li>
+      <li class="nav-item" *ngFor="let page of pages | keyvalue">
+        <span class="nav-link">
+                  <a [routerLink]="['/page/', page.key]">
+          {{page.value.titre}}
+        </a>
+           <i (click)="deleteThis(page.key)" class="fas fa-times"></i>
+        </span>
+
+      </li>
+    </ul>
+
+
+  </div>
+</nav>
